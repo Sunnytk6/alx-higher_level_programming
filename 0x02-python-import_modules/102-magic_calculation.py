@@ -1,11 +1,13 @@
 #!/usr/bin/python3
-def magic_calculation(a, b):
-    """Match bytecode provided by Holberton School."""
-    from magic_calculation_102 import add, sub
-    if a < b:
-        c = add(a, b)
-        for i in range(4, 6):
-            c = add(c, i)
-        return (c)
+from __future__ import print_function
+import sys
+
+
+def safe_function(fct, *args):
+    try:
+        res = fct(*args)
+    except Exception as e:
+        print("Exception: {}".format(e), file=sys.stderr)
+        return None
     else:
-        return(sub(a, b))
+        return res
